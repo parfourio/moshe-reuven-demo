@@ -517,6 +517,61 @@
       height: 100%;
       border: none;
     }
+    .video-card {
+      margin-top: 56px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+      border: 1px solid var(--white-10);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 48px;
+      text-align: center;
+      gap: 28px;
+      background: var(--black-light);
+      position: relative;
+      overflow: hidden;
+    }
+    .video-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(201,168,76,0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .video-play-icon {
+      width: 72px; height: 72px;
+      border: 2px solid var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .video-play-icon svg { width: 28px; height: 28px; fill: var(--gold); margin-left: 4px; }
+    .video-card-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8rem;
+      letter-spacing: 0.08em;
+      color: var(--white);
+    }
+    .video-card-sub {
+      font-size: 0.88rem;
+      color: var(--white-60);
+      max-width: 480px;
+      line-height: 1.6;
+    }
+    .video-card-links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    @media (max-width: 640px) {
+      .video-card { padding: 48px 20px; }
+    }
 
     /* ── BOOKINGS ── */
     #bookings { background: var(--black); }
@@ -712,7 +767,7 @@
 
   <!-- NAV -->
   <nav id="top">
-    <a href="#top" class="nav-logo">MOSHE <span>REUVEN</span></a>
+    <a href="#" class="nav-logo">MOSHE <span>REUVEN</span></a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#music">Music</a></li>
@@ -907,13 +962,16 @@
       <div class="section-label">Featured Video</div>
       <div class="section-title">BILLBOARD<br>GRAMMY COVER.</div>
       <p class="section-sub" style="margin-bottom: 0;">Moshe Reuven on the Grammy First Look cover of Billboard Magazine — July 2024. One of the most unexpected stories in music history.</p>
-      <div class="video-wrap">
-        <iframe
-          src="https://www.youtube.com/embed/?listType=search&list=Moshe+Reuven+Grammy+Billboard"
-          title="Moshe Reuven — Billboard Grammy First Look"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen>
-        </iframe>
+      <div class="video-card">
+        <div class="video-play-icon">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <div class="video-card-title">BILLBOARD GRAMMY FIRST LOOK COVER</div>
+        <div class="video-card-sub">Watch Moshe's music videos, interviews, and live performances — including the Grammy First Look coverage — on his YouTube channel.</div>
+        <div class="video-card-links">
+          <a href="https://www.youtube.com/@moshereuven" target="_blank" class="btn-primary">Watch on YouTube →</a>
+          <a href="https://open.spotify.com/artist/1qJlHo34rHLy2B4xfNo3Qn" target="_blank" class="btn-outline">Stream on Spotify</a>
+        </div>
       </div>
     </div>
   </section>
@@ -1002,13 +1060,14 @@
 
     document.querySelectorAll('a[href^="#"]').forEach(link => {
       link.addEventListener('click', function(e) {
-        const id = this.getAttribute('href').slice(1);
+        const href = this.getAttribute('href');
+        const id = href.slice(1);
         hamburger.classList.remove('open');
         navLinks.classList.remove('open');
+        e.preventDefault();
         if (!id) { window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
         const el = document.getElementById(id);
         if (!el) return;
-        e.preventDefault();
         const navEl = document.querySelector('nav');
         const navH = navEl ? navEl.getBoundingClientRect().height : 60;
         const top = el.getBoundingClientRect().top + window.scrollY - navH;
