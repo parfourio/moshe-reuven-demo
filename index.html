@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<!--
+
+  Hey Moshe —
+
+  I'm a huge fan. I built this site for you, no strings attached.
+  Please let me know how I can help you.
+
+  — Scott Schultz
+    scott.schultz.solutions@gmail.com
+    parfour.io
+
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Moshe Reuven — Rabbi · Artist · Billboard Charting</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --black:      #0a0a0a;
+      --black-mid:  #111111;
+      --black-light:#1a1a1a;
+      --gold:       #c9a84c;
+      --gold-light: #e2c06a;
+      --gold-pale:  #fdf3e0;
+      --white:      #ffffff;
+      --white-60:   rgba(255,255,255,0.6);
+      --white-30:   rgba(255,255,255,0.3);
+      --white-10:   rgba(255,255,255,0.08);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--black); color: var(--white); overflow-x: hidden; }
+
+    /* ── OUTREACH BANNER ── */
+    .outreach-banner {
+      background: var(--gold);
+      color: #1a0e00;
+      padding: 12px 24px;
+      text-align: center;
+      font-size: 0.84rem;
+      font-weight: 500;
+      line-height: 1.5;
+    }
+    .outreach-banner strong { font-weight: 700; }
+    .outreach-banner a.reply-btn {
+      display: inline-block;
+      margin-left: 12px;
+      background: #1a0e00;
+      color: var(--gold-light);
+      padding: 5px 16px;
+      border-radius: 2px;
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      transition: background 0.2s;
+    }
+    .outreach-banner a.reply-btn:hover { background: #2e1a00; }
+
+    /* ── NAV ── */
+    nav {
+      background: rgba(10,10,10,0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 0 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+      border-bottom: 1px solid var(--white-10);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: 0.12em;
+      color: var(--white);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--gold); }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+      align-items: center;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--white-60);
+      font-size: 0.73rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta {
+      background: var(--gold) !important;
+      color: #1a0e00 !important;
+      padding: 8px 18px !important;
+      border-radius: 2px !important;
+      font-weight: 700 !important;
+    }
+    .nav-cta:hover { background: var(--gold-light) !important; color: #1a0e00 !important; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: all 0.3s; }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background: var(--black);
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 70% 50%, #1e1e1e 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 30% 80%, rgba(201,168,76,0.06) 0%, transparent 60%);
+    }
+    .hero-lines {
+      position: absolute;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 59px,
+          rgba(255,255,255,0.025) 59px,
+          rgba(255,255,255,0.025) 60px
+        );
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 100px 48px 80px;
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .hero-left {}
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 32px;
+    }
+    .hero-badge {
+      border: 1px solid rgba(201,168,76,0.35);
+      color: var(--gold);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 1px;
+    }
+    .hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(5rem, 9vw, 9rem);
+      line-height: 0.9;
+      letter-spacing: 0.04em;
+      color: var(--white);
+      margin-bottom: 24px;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--gold);
+      display: block;
+    }
+    .hero-tagline {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--white-60);
+      line-height: 1.6;
+      max-width: 440px;
+      margin-bottom: 36px;
+      border-left: 2px solid var(--gold);
+      padding-left: 20px;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--gold);
+      color: #1a0e00;
+      padding: 14px 28px;
+      border-radius: 2px;
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .btn-outline {
+      background: transparent;
+      color: var(--white-60);
+      padding: 14px 28px;
+      border-radius: 2px;
+      border: 1px solid rgba(255,255,255,0.2);
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: border-color 0.2s, color 0.2s;
+      display: inline-block;
+    }
+    .btn-outline:hover { border-color: rgba(255,255,255,0.5); color: var(--white); }
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .hero-stat-block {
+      border: 1px solid var(--white-10);
+      padding: 24px 28px;
+      position: relative;
+    }
+    .hero-stat-block::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 100%;
+      background: var(--gold);
+    }
+    .hero-stat-label {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+    .hero-stat-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      color: var(--white);
+      line-height: 1.4;
+    }
+    .hero-stat-source {
+      font-size: 0.68rem;
+      color: var(--white-30);
+      margin-top: 4px;
+      letter-spacing: 0.06em;
+    }
+
+    /* ── PRESS STRIP ── */
+    .press-strip {
+      background: var(--black-mid);
+      border-top: 1px solid var(--white-10);
+      border-bottom: 1px solid var(--white-10);
+      padding: 22px 48px;
+      display: flex;
+      align-items: center;
+      gap: 0;
+      overflow: hidden;
+    }
+    .press-strip-label {
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--white-30);
+      white-space: nowrap;
+      margin-right: 40px;
+      flex-shrink: 0;
+    }
+    .press-logos {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .press-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      white-space: nowrap;
+      transition: color 0.2s;
+    }
+    .press-logo:hover { color: var(--white-60); }
+    .press-dot {
+      width: 3px; height: 3px;
+      background: var(--white-30);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ── SECTION SHELLS ── */
+    section { position: relative; }
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 100px 48px;
+    }
+    .section-label {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1;
+      max-width: 60px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.4;
+    }
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.8rem, 5vw, 4.5rem);
+      letter-spacing: 0.04em;
+      line-height: 1;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+    .section-sub {
+      font-size: 1rem;
+      color: var(--white-60);
+      line-height: 1.75;
+      max-width: 600px;
+    }
+
+    /* ── STORY ── */
+    #about { background: var(--black); }
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+      margin-top: 56px;
+    }
+    .story-text p {
+      font-size: 1rem;
+      color: var(--white-60);
+      line-height: 1.85;
+      margin-bottom: 24px;
+    }
+    .story-text p:last-child { margin-bottom: 0; }
+    .story-text strong { color: var(--white); font-weight: 600; }
+    .story-facts {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .story-fact {
+      border-left: 2px solid var(--gold);
+      padding: 16px 20px;
+      background: var(--black-mid);
+    }
+    .story-fact-label {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+    .story-fact-value {
+      font-size: 0.95rem;
+      color: var(--white);
+      line-height: 1.5;
+    }
+
+    /* ── MUSIC ── */
+    #music { background: var(--black-mid); }
+    .music-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      margin-top: 56px;
+      align-items: start;
+    }
+    .spotify-embed {
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .spotify-embed iframe {
+      width: 100%;
+      border: none;
+      border-radius: 4px;
+    }
+    .music-info {}
+    .music-info h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.2rem;
+      letter-spacing: 0.06em;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+    .music-info p {
+      font-size: 0.95rem;
+      color: var(--white-60);
+      line-height: 1.75;
+      margin-bottom: 24px;
+    }
+    .music-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .music-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border: 1px solid var(--white-10);
+      text-decoration: none;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--white-60);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .music-link:hover { border-color: var(--gold); color: var(--gold); }
+    .music-link svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+    /* ── PRESS QUOTES ── */
+    #press { background: var(--black); }
+    .quotes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--white-10);
+      margin-top: 56px;
+    }
+    .quote-card {
+      background: var(--black);
+      padding: 40px 32px;
+    }
+    .quote-text {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.05rem;
+      line-height: 1.65;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+    .quote-source {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .pull-quote {
+      margin-top: 1px;
+      background: var(--black-light);
+      padding: 64px 48px;
+      text-align: center;
+    }
+    .pull-quote-text {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      letter-spacing: 0.04em;
+      line-height: 1.1;
+      color: var(--white);
+      max-width: 900px;
+      margin: 0 auto 20px;
+    }
+    .pull-quote-text em { color: var(--gold); font-style: normal; }
+    .pull-quote-source {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--white-30);
+    }
+
+    /* ── VIDEO ── */
+    #video { background: var(--black-mid); }
+    .video-wrap {
+      margin-top: 56px;
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      aspect-ratio: 16/9;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .video-wrap iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* ── BOOKINGS ── */
+    #bookings { background: var(--black); }
+    .bookings-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      margin-top: 56px;
+      align-items: start;
+    }
+    .bookings-info h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+    .bookings-info p {
+      font-size: 0.95rem;
+      color: var(--white-60);
+      line-height: 1.75;
+      margin-bottom: 24px;
+    }
+    .bookings-types {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .booking-type {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.85rem;
+      color: var(--white-60);
+    }
+    .booking-type::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .booking-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .form-group label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--white-60);
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: var(--black-light);
+      border: 1px solid var(--white-10);
+      color: var(--white);
+      padding: 12px 16px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--gold); }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-group select { appearance: none; cursor: pointer; }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: var(--white-30); }
+    .form-submit {
+      background: var(--gold);
+      color: #1a0e00;
+      border: none;
+      padding: 16px 32px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s;
+      align-self: flex-start;
+    }
+    .form-submit:hover { background: var(--gold-light); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--black-mid);
+      border-top: 1px solid var(--white-10);
+      padding: 48px;
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .footer-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: 0.12em;
+      color: var(--white);
+    }
+    .footer-logo span { color: var(--gold); }
+    .footer-socials {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+    .footer-socials a {
+      color: var(--white-30);
+      transition: color 0.2s;
+      text-decoration: none;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .footer-socials a:hover { color: var(--gold); }
+    .footer-credit {
+      font-size: 0.68rem;
+      color: var(--white-30);
+      letter-spacing: 0.06em;
+    }
+    .footer-credit a { color: var(--gold); text-decoration: none; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 640px) {
+      nav { padding: 0 20px; height: 60px; }
+      .hamburger { display: flex; }
+      .nav-links {
+        display: none;
+        position: fixed;
+        top: 60px; left: 0; right: 0;
+        background: #0a0a0a;
+        flex-direction: column;
+        padding: 16px 20px;
+        gap: 0;
+        box-shadow: 0 12px 24px rgba(0,0,0,0.6);
+        z-index: 998;
+        border-top: 1px solid var(--white-10);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { width: 100%; }
+      .nav-links li a {
+        display: block;
+        padding: 14px 0;
+        border-bottom: 1px solid var(--white-10);
+        font-size: 0.85rem;
+      }
+      .nav-links li:last-child a { border-bottom: none; }
+      .hero-inner { grid-template-columns: 1fr; padding: 60px 20px 60px; gap: 40px; }
+      .hero h1 { font-size: clamp(4rem, 18vw, 5.5rem); }
+      .hero-right { gap: 16px; }
+      .press-strip { padding: 16px 20px; }
+      .press-logos { gap: 20px; }
+      .section-inner { padding: 64px 20px; }
+      .story-grid { grid-template-columns: 1fr; gap: 40px; }
+      .music-grid { grid-template-columns: 1fr; gap: 36px; }
+      .quotes-grid { grid-template-columns: 1fr; }
+      .pull-quote { padding: 40px 20px; }
+      .bookings-grid { grid-template-columns: 1fr; gap: 40px; }
+      .form-row { grid-template-columns: 1fr; }
+      footer { padding: 32px 20px; }
+      .footer-inner { flex-direction: column; align-items: flex-start; gap: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BANNER -->
+  <div class="outreach-banner">
+    <strong>Hey Moshe</strong> — I built this for you, no strings attached. Please let me know how I can help.
+    <a href="mailto:scott.schultz.solutions@gmail.com" class="reply-btn">Reply to Scott →</a>
+  </div>
+
+  <!-- NAV -->
+  <nav id="top">
+    <a href="#top" class="nav-logo">MOSHE <span>REUVEN</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#music">Music</a></li>
+      <li><a href="#press">Press</a></li>
+      <li><a href="#video">Video</a></li>
+      <li><a href="#bookings" class="nav-cta">Bookings</a></li>
+    </ul>
+    <button class="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-lines"></div>
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div class="hero-badges">
+          <span class="hero-badge">Forbes 30 Under 30</span>
+          <span class="hero-badge">Billboard Charting Artist</span>
+          <span class="hero-badge">Grammy First Look Cover</span>
+        </div>
+        <h1>MOSHE<em>REUVEN.</em></h1>
+        <p class="hero-tagline">"The World's First Billboard Charting Rabbi" — Rabbi, artist, and one of the most unlikely music stories of the decade.</p>
+        <div class="hero-actions">
+          <a href="#music" class="btn-primary">Listen Now</a>
+          <a href="#bookings" class="btn-outline">Book Moshe</a>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-stat-block">
+          <div class="hero-stat-label">Billboard Magazine</div>
+          <div class="hero-stat-value">Grammy First Look Dual Cover · July 2024</div>
+          <div class="hero-stat-source">One of only two artists featured</div>
+        </div>
+        <div class="hero-stat-block">
+          <div class="hero-stat-label">Chart Performance</div>
+          <div class="hero-stat-value">"You Are Not Alone" — No. 22 on Billboard · #1 in Israel</div>
+          <div class="hero-stat-source">Sun Sentinel · Billboard</div>
+        </div>
+        <div class="hero-stat-block">
+          <div class="hero-stat-label">Global Reach</div>
+          <div class="hero-stat-value">1.8 Million Followers & hits worldwide</div>
+          <div class="hero-stat-source">BBC</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRESS STRIP -->
+  <div class="press-strip">
+    <span class="press-strip-label">As seen in</span>
+    <div class="press-logos">
+      <span class="press-logo">Billboard</span>
+      <span class="press-dot"></span>
+      <span class="press-logo">The New York Post</span>
+      <span class="press-dot"></span>
+      <span class="press-logo">BBC</span>
+      <span class="press-dot"></span>
+      <span class="press-logo">Forbes</span>
+      <span class="press-dot"></span>
+      <span class="press-logo">GQ</span>
+      <span class="press-dot"></span>
+      <span class="press-logo">Metro UK</span>
+      <span class="press-dot"></span>
+      <span class="press-logo">The Daily Star</span>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-inner">
+      <div class="section-label">The Story</div>
+      <div class="section-title">RABBI.<br>ARTIST.<br>HISTORY MAKER.</div>
+      <div class="story-grid">
+        <div class="story-text">
+          <p>Moshe Reuven Sheradsky grew up in Hollywood, Florida — making music with friends and searching for something bigger than the party lifestyle he was living. That search led him to Orthodox Judaism, years of study across America and Israel, and ultimately rabbinic ordination at the <strong>Rabbinical College of America</strong> in 2021.</p>
+          <p>What makes Moshe's story extraordinary isn't just the transformation — it's what came after. While most rabbis lead congregations, Moshe took his music to the world stage. His breakout hit <strong>"You Are Not Alone"</strong> reached No. 22 on the Billboard charts and went to #1 in Israel. He collaborated with Julian Marley. He went viral at the Grammys.</p>
+          <p>In July 2024, <strong>Billboard Magazine</strong> put him on their Grammy First Look cover alongside some of the biggest names in music — and called him "the most unlikely music story of the year." The Daily Star called him "The World's First Billboard Charting Rabbi." The BBC said he had "<strong>1.8 million followers and a string of hits around the world.</strong>"</p>
+          <p>He is a Forbes 30 Under 30 honoree, a member of the Recording Academy, and a Forbes Technology Council member. But more than any of that — he's proof that the most powerful music comes from the most authentic place.</p>
+        </div>
+        <div class="story-facts">
+          <div class="story-fact">
+            <div class="story-fact-label">Ordination</div>
+            <div class="story-fact-value">Rabbinical College of America · 2021</div>
+          </div>
+          <div class="story-fact">
+            <div class="story-fact-label">Forbes Recognition</div>
+            <div class="story-fact-value">30 Under 30 · Technology Council Member</div>
+          </div>
+          <div class="story-fact">
+            <div class="story-fact-label">Recording Academy</div>
+            <div class="story-fact-value">Member since 2023</div>
+          </div>
+          <div class="story-fact">
+            <div class="story-fact-label">Breakthrough Hit</div>
+            <div class="story-fact-value">"You Are Not Alone" — No. 22 Billboard · #1 Israel</div>
+          </div>
+          <div class="story-fact">
+            <div class="story-fact-label">Grammy Cover</div>
+            <div class="story-fact-value">Billboard Magazine Grammy First Look · July 2024</div>
+          </div>
+          <div class="story-fact">
+            <div class="story-fact-label">Collaboration</div>
+            <div class="story-fact-value">Julian Marley · "Say" (Miami premiere, Dec 2022)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MUSIC -->
+  <section id="music">
+    <div class="section-inner">
+      <div class="section-label">Music</div>
+      <div class="section-title">STREAM<br>THE MUSIC.</div>
+      <div class="music-grid">
+        <div class="spotify-embed">
+          <iframe
+            src="https://open.spotify.com/embed/artist/1qJlHo34rHLy2B4xfNo3Qn?utm_source=generator&theme=0"
+            width="100%"
+            height="380"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy">
+          </iframe>
+        </div>
+        <div class="music-info">
+          <h3>THE POETRY<br>& MORE</h3>
+          <p>From the introspective depths of "The Poetry" to the anthemic energy of his Billboard charting hits, Moshe's music defies genre. Hip-hop, soul, and the ancient rhythms of Jewish tradition — woven into something entirely new.</p>
+          <p>Available on all major platforms. The music that started a movement.</p>
+          <div class="music-links">
+            <a href="https://open.spotify.com/artist/1qJlHo34rHLy2B4xfNo3Qn" target="_blank" class="music-link">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+              Spotify
+            </a>
+            <a href="https://music.apple.com/search?term=moshe+reuven" target="_blank" class="music-link">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.994 6.124a9.23 9.23 0 00-.24-2.19c-.317-1.31-1.062-2.31-2.18-3.043a5.022 5.022 0 00-1.769-.73 7.223 7.223 0 00-1.199-.17c-.015 0-.129-.006-.195-.006H5.588c-.065 0-.18.006-.196.006a7.44 7.44 0 00-1.2.17 5.02 5.02 0 00-1.768.73C1.307 1.623.562 2.622.245 3.934a9.23 9.23 0 00-.24 2.19C.003 6.26 0 6.398 0 6.535v10.93c0 .135.003.274.005.41.033 1.17.258 2.253.814 3.214a5.11 5.11 0 001.612 1.73c.76.506 1.636.787 2.56.91.24.033.488.05.737.057.13.003.263.006.394.006h12.756c.13 0 .264-.003.394-.006.25-.007.497-.024.737-.057.924-.123 1.8-.404 2.56-.91a5.11 5.11 0 001.612-1.73c.556-.961.781-2.044.814-3.215.002-.135.005-.274.005-.41V6.535c0-.137-.003-.275-.005-.41zM12.08 16.4c-2.456 0-4.446-1.99-4.446-4.446S9.624 7.508 12.08 7.508s4.446 1.99 4.446 4.446-1.99 4.446-4.446 4.446zm4.63-7.972a1.04 1.04 0 110-2.08 1.04 1.04 0 010 2.08zm-4.63 1.32a3.097 3.097 0 100 6.194 3.097 3.097 0 000-6.194z"/></svg>
+              Apple Music
+            </a>
+            <a href="https://www.youtube.com/@moshereuven" target="_blank" class="music-link">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+              YouTube
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRESS QUOTES -->
+  <section id="press">
+    <div class="section-inner">
+      <div class="section-label">Press</div>
+      <div class="section-title">WHAT THE<br>WORLD IS SAYING.</div>
+    </div>
+    <div class="quotes-grid">
+      <div class="quote-card">
+        <div class="quote-text">"Hasidic rapper who rhymes about God bursts into mainstream, saying fans want more meaning from music."</div>
+        <div class="quote-source">The New York Post</div>
+      </div>
+      <div class="quote-card">
+        <div class="quote-text">"In just a short period of time, Moshe has become a standout figure in Alternative Hip Hop."</div>
+        <div class="quote-source">Billboard Magazine</div>
+      </div>
+      <div class="quote-card">
+        <div class="quote-text">"Over 1.8 million followers and a string of hits around the world."</div>
+        <div class="quote-source">BBC</div>
+      </div>
+      <div class="quote-card">
+        <div class="quote-text">"Swapped a party-hard lifestyle for a music career, seeing him become one of the most popular rap megastars in Israel and worldwide."</div>
+        <div class="quote-source">Metro UK — Highest Circulated Newspaper in England</div>
+      </div>
+      <div class="quote-card">
+        <div class="quote-text">"He's transformed his life and is now a fully observant Chabad success story with semicha from the Rabbinical College of America."</div>
+        <div class="quote-source">Jewish Link</div>
+      </div>
+      <div class="quote-card">
+        <div class="quote-text">"A world iconoclastic personality."</div>
+        <div class="quote-source">Bernard de La Villardière · M6, Top French National News Channel</div>
+      </div>
+    </div>
+    <div class="pull-quote">
+      <div class="pull-quote-text">"THE WORLD'S FIRST <em>BILLBOARD CHARTING</em> RABBI."</div>
+      <div class="pull-quote-source">— The Daily Star</div>
+    </div>
+  </section>
+
+  <!-- VIDEO -->
+  <section id="video">
+    <div class="section-inner">
+      <div class="section-label">Featured Video</div>
+      <div class="section-title">BILLBOARD<br>GRAMMY COVER.</div>
+      <p class="section-sub" style="margin-bottom: 0;">Moshe Reuven on the Grammy First Look cover of Billboard Magazine — July 2024. One of the most unexpected stories in music history.</p>
+      <div class="video-wrap">
+        <iframe
+          src="https://www.youtube.com/embed/?listType=search&list=Moshe+Reuven+Grammy+Billboard"
+          title="Moshe Reuven — Billboard Grammy First Look"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKINGS -->
+  <section id="bookings">
+    <div class="section-inner">
+      <div class="section-label">Bookings</div>
+      <div class="section-title">BOOK MOSHE<br>FOR YOUR EVENT.</div>
+      <div class="bookings-grid">
+        <div class="bookings-info">
+          <h3>Concerts, Speaking & More</h3>
+          <p>Whether you're looking for a live performance, a keynote on transformation and purpose, or a special appearance — Moshe brings something genuinely unique to every stage.</p>
+          <div class="bookings-types">
+            <div class="booking-type">Live Concerts & Performances</div>
+            <div class="booking-type">Speaking Engagements & Keynotes</div>
+            <div class="booking-type">Jewish Community Events</div>
+            <div class="booking-type">Corporate & Private Events</div>
+            <div class="booking-type">Media & Press Appearances</div>
+            <div class="booking-type">Collaborations & Features</div>
+          </div>
+        </div>
+        <form class="booking-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label>First Name</label>
+              <input type="text" placeholder="Sarah" />
+            </div>
+            <div class="form-group">
+              <label>Last Name</label>
+              <input type="text" placeholder="Cohen" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" placeholder="sarah@example.com" />
+          </div>
+          <div class="form-group">
+            <label>Phone</label>
+            <input type="tel" placeholder="+1 (555) 000-0000" />
+          </div>
+          <div class="form-group">
+            <label>Type of Event</label>
+            <select>
+              <option value="">Select event type…</option>
+              <option>Live Concert / Performance</option>
+              <option>Speaking Engagement / Keynote</option>
+              <option>Jewish Community Event</option>
+              <option>Corporate / Private Event</option>
+              <option>Media / Press</option>
+              <option>Collaboration / Feature</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Tell us about your event</label>
+            <textarea placeholder="Date, location, audience size, and any other details…"></textarea>
+          </div>
+          <button type="submit" class="form-submit">Send Inquiry →</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">MOSHE <span>REUVEN</span></div>
+      <div class="footer-socials">
+        <a href="https://www.instagram.com/moshereuven/" target="_blank">Instagram</a>
+        <a href="https://open.spotify.com/artist/1qJlHo34rHLy2B4xfNo3Qn" target="_blank">Spotify</a>
+        <a href="https://www.youtube.com/@moshereuven" target="_blank">YouTube</a>
+      </div>
+      <div class="footer-credit">Demo by <a href="https://parfour.io" target="_blank">Par4 Technologies</a></div>
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks  = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      navLinks.classList.toggle('open');
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', function(e) {
+        const id = this.getAttribute('href').slice(1);
+        hamburger.classList.remove('open');
+        navLinks.classList.remove('open');
+        if (!id) { window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
+        const el = document.getElementById(id);
+        if (!el) return;
+        e.preventDefault();
+        const navEl = document.querySelector('nav');
+        const navH = navEl ? navEl.getBoundingClientRect().height : 60;
+        const top = el.getBoundingClientRect().top + window.scrollY - navH;
+        window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+</html>
